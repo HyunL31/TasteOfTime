@@ -9,6 +9,11 @@ public class UIManager : SingletonBase<UIManager>
     private Dictionary<UIType, UIBase> _createdUI = new Dictionary<UIType, UIBase>();
     private HashSet<UIType> _activeUI = new HashSet<UIType>();
 
+    private void Start()
+    {
+        this.OpenTitleUI();
+    }
+
     public UIBase OpenUI(UIRoot root, UIType type)
     {
         UIBase openedUI = GetOpenedUI(root, type);
