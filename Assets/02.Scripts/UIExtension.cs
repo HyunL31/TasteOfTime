@@ -33,11 +33,11 @@ public static class UIExtension
 
     public static void OpenSettingUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Popup, UIType.SettingUI);
+        uiManager.OpenUI(UIRoot.Main, UIType.SettingUI);
     }
 
     public static void CloseSettingUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Popup, UIType.SettingUI);
+        uiManager.CloseUI(UIRoot.Main, UIType.SettingUI);
     }
 }

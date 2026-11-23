@@ -31,6 +31,7 @@ public class SettingUI : ViewBase
 
     private void OnClickClose()
     {
+        PlayerPrefs.Save();
         UIManager.Inst.CloseSettingUI();
     }
 
@@ -43,14 +44,12 @@ public class SettingUI : ViewBase
     {
         AudioMixer.SetFloat(BGM, Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
         PlayerPrefs.SetFloat(BGM, value);
-        PlayerPrefs.Save();
     }
     
     private void OnChangeSFX(float value)
     {
         AudioMixer.SetFloat(SFX, Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
         PlayerPrefs.SetFloat(SFX, value);
-        PlayerPrefs.Save();
     }
 
     private void OnClickReset()
