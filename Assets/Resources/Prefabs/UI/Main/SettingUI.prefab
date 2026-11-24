@@ -1823,6 +1823,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7496005894323525793}
   - component: {fileID: 4602647894386946509}
+  - component: {fileID: 743250673709634433}
+  - component: {fileID: 173878543806442210}
   m_Layer: 0
   m_Name: SettingUI
   m_TagString: Untagged
@@ -1862,12 +1864,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8adc34a63ab3146942c7fa31231fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelSwitcher: {fileID: 173878543806442210}
+  PanelSlide: {fileID: 743250673709634433}
   AudioMixer: {fileID: 24100000, guid: c42fb205f9d07b943913cf762e4f6350, type: 2}
   Button_Close: {fileID: 4016688880392541495}
   Button_Reset: {fileID: 4913544908617596219}
   Button_Logout: {fileID: 2939417412615411250}
   Slider_BGM: {fileID: 794171636710808947}
   Slider_SFX: {fileID: 2875179652263237754}
+--- !u!114 &743250673709634433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506448730026159277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacafb7a6e7d4da4fab9b3c3bb10ee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rect_Panel: {fileID: 7496005894323525793}
+  Speed_Duration: 0.3
+  Ease: 10
+  IsPlayOnEnable: 0
+  Dicrection_Enter: {x: 1, y: 0}
+--- !u!114 &173878543806442210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506448730026159277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b22c5c03b6340459198dee12638211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel_Current: {fileID: 743250673709634433}
+  Speed_Gap: 0.3
 --- !u!1 &8812733597653319756
 GameObject:
   m_ObjectHideFlags: 0

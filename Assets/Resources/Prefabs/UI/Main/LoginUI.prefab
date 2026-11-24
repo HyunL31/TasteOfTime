@@ -504,6 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7189857451741113766}
   - component: {fileID: 5995057376184489288}
+  - component: {fileID: 4781887439455819663}
   m_Layer: 0
   m_Name: LoginUI
   m_TagString: Untagged
@@ -543,11 +544,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fa222ebaf401048b3814b34553dd92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelSlide: {fileID: 4781887439455819663}
   Button_Login: {fileID: 2960274248791601189}
   Button_Regist: {fileID: 2890161166747481485}
   Toggle_AutoLogin: {fileID: 6909789015408020291}
   Input_UserID: {fileID: 2819649573541330639}
   Input_Password: {fileID: 3911972558497364896}
+--- !u!114 &4781887439455819663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391781176441197295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacafb7a6e7d4da4fab9b3c3bb10ee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rect_Panel: {fileID: 7189857451741113766}
+  Speed_Duration: 0.3
+  Ease: 10
+  IsPlayOnEnable: 0
+  Dicrection_Enter: {x: 1, y: 0}
 --- !u!1 &1513835037835756600
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingUI : ViewBase
 {
+    [SerializeField] private PanelSwitcher PanelSwitcher;
+    [SerializeField] private PanelSlide PanelSlide;
     [SerializeField] private AudioMixer AudioMixer;
     [SerializeField] private Button Button_Close;
     [SerializeField] private Button Button_Reset;
@@ -16,12 +19,14 @@ public class SettingUI : ViewBase
     private const string BGM = "BGM";
     private const string SFX = "SFX";
 
+    public bool IsTitle {  get; private set; }
+
     private void Awake()
     {
         Slider_BGM.value = PlayerPrefs.GetFloat(BGM, _defaultVolume);
         Slider_SFX.value = PlayerPrefs.GetFloat(SFX, _defaultVolume);
 
-        Button_Close.onClick.AddListener(OnClickClose);
+        Button_Close.onClick.AddListener(() => OnClickClose().Forget());
         Button_Reset.onClick.AddListener(OnClickReset);
         Button_Logout.onClick.AddListener(OnClickLogout);
 
@@ -29,9 +34,26 @@ public class SettingUI : ViewBase
         Slider_SFX.onValueChanged.AddListener(OnChangeSFX);
     }
 
-    private void OnClickClose()
+    private void OnEnable()
+    {
+        if (IsTitle == true)
+        {
+            Button_Logout.gameObject.SetActive(false);
+        }
+    }
+
+    private async UniTask OnClickClose()
     {
         PlayerPrefs.Save();
+
+        if (IsTitle == true)
+        {
+            TitleUI title = UIManager.Inst.OpenTitleUI();
+            title.gameObject.SetActive(false);
+
+            await PanelSwitcher.SwitchTo(title.GetPanelSlide(), Vector2.right, Vector2.right);
+        }
+
         UIManager.Inst.CloseSettingUI();
     }
 
@@ -62,5 +84,15 @@ public class SettingUI : ViewBase
 
         Slider_BGM.value = _defaultVolume;
         Slider_SFX.value = _defaultVolume;
+    }
+
+    public void SetIsTitle(bool isTitle)
+    {
+        IsTitle = isTitle;
+    }
+
+    public PanelSlide GetPanelSlide()
+    {
+        return PanelSlide;
     }
 }

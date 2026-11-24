@@ -22,9 +22,16 @@ public static class UIExtension
         return $"Prefabs/UI/{root}/{type}";
     }
 
-    public static void OpenTitleUI(this UIManager uiManager)
+    public static TitleUI OpenTitleUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Main, UIType.TitleUI);
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Main, UIType.TitleUI);
+
+        if (uiBase is TitleUI title)
+        {
+            return title;
+        }
+
+        return null;
     }
 
     public static void CloseTitleUI(this UIManager uiManager)
@@ -32,9 +39,17 @@ public static class UIExtension
         uiManager.CloseUI(UIRoot.Main, UIType.TitleUI);
     }
 
-    public static void OpenSettingUI(this UIManager uiManager)
+    public static SettingUI OpenSettingUI(this UIManager uiManager, bool isTitle = false)
     {
-        uiManager.OpenUI(UIRoot.Main, UIType.SettingUI);
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Main, UIType.SettingUI);
+        
+        if (uiBase is SettingUI settingUI)
+        {
+            settingUI.SetIsTitle(isTitle);
+            return settingUI;
+        }
+
+        return null;
     }
 
     public static void CloseSettingUI(this UIManager uiManager)
@@ -42,9 +57,16 @@ public static class UIExtension
         uiManager.CloseUI(UIRoot.Main, UIType.SettingUI);
     }
 
-    public static void OpenLoginUI(this UIManager uiManager)
+    public static LoginUI OpenLoginUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Main, UIType.LoginUI);
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Main, UIType.LoginUI);
+
+        if (uiBase is LoginUI loginUI)
+        {
+            return loginUI;
+        }
+
+        return null;
     }
 
     public static void CloseLoginUI(this UIManager uiManager)

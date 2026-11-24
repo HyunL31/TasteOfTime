@@ -316,6 +316,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3687457880064266761}
   - component: {fileID: 8383849571704792769}
+  - component: {fileID: 2011898462504666170}
+  - component: {fileID: 7857017439729256128}
   m_Layer: 0
   m_Name: TitleUI
   m_TagString: Untagged
@@ -355,9 +357,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db8103b02a702f43b10959a04fdff4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelSwitcher: {fileID: 7857017439729256128}
+  PanelSlide: {fileID: 2011898462504666170}
   Button_Login: {fileID: 4820374190983969308}
   Button_Setting: {fileID: 4179737655185578504}
   Button_Quit: {fileID: 3409236436608143996}
+--- !u!114 &2011898462504666170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416905418620226276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacafb7a6e7d4da4fab9b3c3bb10ee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rect_Panel: {fileID: 3687457880064266761}
+  Speed_Duration: 0.3
+  Ease: 10
+  IsPlayOnEnable: 1
+  Dicrection_Enter: {x: 1, y: 0}
+--- !u!114 &7857017439729256128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416905418620226276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b22c5c03b6340459198dee12638211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel_Current: {fileID: 2011898462504666170}
+  Speed_Gap: 0.3
 --- !u!1 &2162303674154442308
 GameObject:
   m_ObjectHideFlags: 0

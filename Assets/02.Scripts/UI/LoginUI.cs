@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class LoginUI : ViewBase
 {
+    [SerializeField] private PanelSlide PanelSlide;
     [SerializeField] private Button Button_Login;
     [SerializeField] private Button Button_Regist;
     [SerializeField] private Toggle Toggle_AutoLogin;
@@ -31,5 +32,10 @@ public class LoginUI : ViewBase
     private void OnAutoLogin(bool isOn)
     {
 
+    }
+
+    public PanelSlide GetPanelSlide()
+    {
+        return PanelSlide;
     }
 }
