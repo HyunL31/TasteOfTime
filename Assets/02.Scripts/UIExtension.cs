@@ -13,7 +13,8 @@ public enum UIType
     TitleUI,
     SettingUI,
     LoginUI,
-    MainUI
+    MainUI,
+    TimerUI
 }
 
 public static class UIExtension
@@ -90,5 +91,22 @@ public static class UIExtension
     public static void CloseMainUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Main, UIType.MainUI);
+    }
+
+    public static TimerUI OpenTimerUI(this UIManager uiManager)
+    {
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Main, UIType.TimerUI);
+
+        if (uiBase is TimerUI timerUI)
+        {
+            return timerUI;
+        }
+
+        return null;
+    }
+
+    public static void CloseTimerUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Main, UIType.TimerUI);
     }
 }

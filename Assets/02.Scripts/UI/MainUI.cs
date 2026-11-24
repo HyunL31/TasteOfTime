@@ -17,7 +17,7 @@ public class MainUI : ViewBase
     private void Awake()
     {
         Button_MyPage.onClick.AddListener(OnClickMyPage);
-        Button_Timer.onClick.AddListener(OnClickTimer);
+        Button_Timer.onClick.AddListener(() => OnClickTimer().Forget());
         Button_Map.onClick.AddListener(OnClickMap);
         Button_Dictionary.onClick.AddListener(OnClickDictionary);
         Button_Quest.onClick.AddListener(OnClickQuest);
@@ -30,9 +30,13 @@ public class MainUI : ViewBase
 
     }
 
-    private void OnClickTimer()
+    private async UniTask OnClickTimer()
     {
+        TimerUI timer = UIManager.Inst.OpenTimerUI();
+        timer.gameObject.SetActive(false);
 
+        await PanelSwitcher.SwitchTo(timer.GetPanelSlide(), Vector2.right, Vector2.right);
+        UIManager.Inst.CloseMainUI();
     }
 
     private void OnClickMap()
