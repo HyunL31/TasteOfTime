@@ -16,7 +16,8 @@ public class TitleUI : ViewBase
 
     private void OnClickLogin()
     {
-
+        UIManager.Inst.OpenLoginUI();
+        UIManager.Inst.CloseTitleUI();
     }
 
     private void OnClickSetting()
