@@ -1,9 +1,11 @@
-﻿using TMPro;
+﻿using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LoginUI : ViewBase
 {
+    [SerializeField] private PanelSwitcher PanelSwitcher;
     [SerializeField] private PanelSlide PanelSlide;
     [SerializeField] private Button Button_Login;
     [SerializeField] private Button Button_Regist;
@@ -13,14 +15,19 @@ public class LoginUI : ViewBase
 
     private void Awake()
     {
-        Button_Login.onClick.AddListener(OnClickLogin);
+        Button_Login.onClick.AddListener(() => OnClickLogin().Forget());
         Button_Regist.onClick.AddListener(OnClickRegist);
 
         Toggle_AutoLogin.onValueChanged.AddListener(OnAutoLogin);
     }
 
-    private void OnClickLogin()
+    private async UniTask OnClickLogin()
     {
+        MainUI main = UIManager.Inst.OpenMainUI();
+        main.gameObject.SetActive(false);
+
+        await PanelSwitcher.SwitchTo(main.GetPanelSlide(), Vector2.right, Vector2.right);
+
         UIManager.Inst.CloseLoginUI();
     }
 

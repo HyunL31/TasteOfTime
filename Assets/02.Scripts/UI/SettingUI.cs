@@ -53,6 +53,13 @@ public class SettingUI : ViewBase
 
             await PanelSwitcher.SwitchTo(title.GetPanelSlide(), Vector2.right, Vector2.right);
         }
+        else
+        {
+            MainUI main = UIManager.Inst.OpenMainUI();
+            main.gameObject.SetActive(false);
+
+            await PanelSwitcher.SwitchTo(main.GetPanelSlide(), Vector2.right, Vector2.right);
+        }
 
         UIManager.Inst.CloseSettingUI();
     }

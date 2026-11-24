@@ -10,8 +10,6 @@ public class TitleUI : ViewBase
     [SerializeField] private Button Button_Setting;
     [SerializeField] private Button Button_Quit;
 
-    private PanelSlide _nextPanel;
-
     private void Awake()
     {
         Button_Login.onClick.AddListener(() => OnClickLogin().Forget());

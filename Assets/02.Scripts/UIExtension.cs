@@ -12,7 +12,8 @@ public enum UIType
     None,
     TitleUI,
     SettingUI,
-    LoginUI
+    LoginUI,
+    MainUI
 }
 
 public static class UIExtension
@@ -72,5 +73,22 @@ public static class UIExtension
     public static void CloseLoginUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Main, UIType.LoginUI);
+    }
+
+    public static MainUI OpenMainUI(this UIManager uiManager)
+    {
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Main, UIType.MainUI);
+
+        if (uiBase is MainUI mainUI)
+        {
+            return mainUI;
+        }
+
+        return null;
+    }
+
+    public static void CloseMainUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Main, UIType.MainUI);
     }
 }
